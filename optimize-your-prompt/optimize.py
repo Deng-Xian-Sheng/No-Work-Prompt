@@ -1,6 +1,7 @@
 import openai
 from jinja2 import Template
 import os
+import random
 
 client = openai.OpenAI(api_key="", base_url="")
 
@@ -100,6 +101,7 @@ while True:
     top_p=0.7,
     stream=True,
     extra_query={"private": True},
+    seed=random.randint(1,999999999),
   )
   
   # 打印流式响应
