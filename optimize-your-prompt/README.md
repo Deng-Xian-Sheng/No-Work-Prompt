@@ -6,12 +6,27 @@ optimize.py 是一个精心设计的工具，它借助 docs 文件夹下的文�
 
 ### 快速开始
 
+1. 克隆仓库&创建venv&安装依赖
+
 ```bash
 git clone https://github.com/Deng-Xian-Sheng/No-Work-Prompt.git && cd No-Work-Prompt/optimize-your-prompt
 
 python3 -m venv venv
 source ./venv/activate
-pip install openai 
+pip install openai jinja2
+```
+
+2. 编辑 optimize.py 填写你的提示词、优化目标、文档（可选）
+
+例如：
+```bash
+vim optimize.py
+```
+
+3. 运行 optimize.py
+
+```bash
+python3 optimize.py
 ```
 
 ## 受益而落地的项目
