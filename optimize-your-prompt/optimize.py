@@ -1,5 +1,6 @@
 import openai
 from jinja2 import Template
+import os
 
 client = openai.OpenAI(api_key="", base_url="")
 
@@ -18,6 +19,31 @@ docs = """
 if current_prompt.strip() == "" and target.strip() == "" and docs.strip() == "":
   print("请编辑我，修改current_prompt、target、docs变量后再次运行。")
   exit(1)
+
+# 读取 docs 文件夹下的 .md 文件
+def read_md_files(folder_path='docs'):
+    """
+    读取指定文件夹及其子文件夹中的所有.md文件
+    :param folder_path: 要搜索的文件夹路径，默认为'docs'
+    :return: 包含文件路径和内容的字典 {文件路径: 文件内容}
+    """
+    md_files = {}
+    # 遍历文件夹及其子文件夹
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            if file.endswith('.md'):
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    md_files[file_path] = content
+                except Exception as e:
+                    print(f"读取文件 {file_path} 时出错: {str(e)}")
+    return md_files
+
+md_contents = read_md_files()
+for path, content in md_contents.items():
+  docs = docs + "\n\n" + content
 
 # OptimizeYouPrompt 的系统提示词
 system_prompt = Template("""
