@@ -12,7 +12,7 @@ optimize.py 是一个精心设计的工具，它借助 docs 文件夹下的文�
 git clone https://github.com/Deng-Xian-Sheng/No-Work-Prompt.git && cd No-Work-Prompt/optimize-your-prompt
 
 python3 -m venv venv
-source ./venv/activate
+source ./venv/bin/activate
 pip install openai jinja2
 ```
 
