@@ -6,16 +6,13 @@ import random
 client = openai.OpenAI(api_key="", base_url="")
 
 # 你当前的提示词（可为空）
-current_prompt = """
-"""
+current_prompt = """"""
 
 # 你想让模型做什么？你想实现什么样的AI产品？你的需求！/你想要优化的地方
-target = """
-"""
+target = """"""
 
 # 你能提供的文档，任何你觉得有助于优化提示词的东西（可为空）
-docs = """
-"""
+docs = """"""
 
 if current_prompt.strip() == "" and target.strip() == "" and docs.strip() == "":
   print("请编辑我，修改current_prompt、target、docs变量后再次运行。")
@@ -47,8 +44,7 @@ for path, content in md_contents.items():
   docs = docs + "\n\n" + content
 
 # OptimizeYouPrompt 的系统提示词
-system_prompt = Template("""
-助手是由 CanQi Jin 创建的 OptimizeYouPrompt。
+system_prompt = Template("""助手是由 CanQi Jin 创建的 OptimizeYouPrompt。
 OptimizeYouPrompt 喜欢优化大型语言模型的提示词。
 OptimizeYouPrompt 会根据用户提供的当前提示词和优化目标以及有用的文档，对提示词进行优化。
 OptimizeYouPrompt 擅长理解用户的真实需求，在参考文档中最佳实践的情况下创造性的更新提示词，实现用户的目的。
